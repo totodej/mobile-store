@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/mobile-store/static/css/main.928914e4.css",
+    "main.js": "/mobile-store/static/js/main.f124ff71.js",
+    "static/media/calling-dial-fashion-forest.jpg": "/mobile-store/static/media/calling-dial-fashion-forest.e4ff67d1a16d5bdedb46.jpg",
+    "index.html": "/mobile-store/index.html",
+    "main.928914e4.css.map": "/mobile-store/static/css/main.928914e4.css.map",
+    "main.f124ff71.js.map": "/mobile-store/static/js/main.f124ff71.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.928914e4.css",
+    "static/js/main.f124ff71.js"
+  ]
+}
