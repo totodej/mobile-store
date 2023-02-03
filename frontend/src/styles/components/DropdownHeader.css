@@ -1,0 +1,24 @@
+.dropdown-header {
+  position: absolute;
+  width: 280px;
+  top: 44px;
+  background-color: rgb(101, 103, 117);
+  padding: 10px;
+  z-index: 1;
+}
+
+.dropdown-header .types {
+  font-weight: 700;
+  margin-bottom: 10px;
+  cursor: initial;
+}
+
+.dropdown-header .types li {
+  cursor: default;
+}
+
+.dropdown-header .brands {
+  display: flex;
+  flex-direction: column;
+  height: 80px;
+}
