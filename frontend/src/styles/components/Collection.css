@@ -1,0 +1,37 @@
+.products-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 30px;
+  gap: 20px;
+}
+
+.product {
+  width: 30%;
+  text-align: center;
+  border: 1px solid lightgrey;
+}
+
+.product:hover {
+  border: 1px solid black;
+}
+
+.product img {
+  height: 300px;
+  object-fit: cover;
+}
+
+.product h3,
+.product p {
+  margin-block-end: 1em;
+}
+
+.product h3 {
+  font-weight: 600;
+}
+
+.product p {
+  font-weight: 300;
+  font-size: 30px;
+  color: red;
+}
