@@ -27,3 +27,8 @@ header li {
   list-style-type: none;
   cursor: pointer;
 }
+
+.link {
+  text-decoration: none;
+  color: white;
+}

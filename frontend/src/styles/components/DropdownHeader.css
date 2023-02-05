@@ -22,3 +22,8 @@
   flex-direction: column;
   height: 80px;
 }
+
+.link {
+  text-decoration: none;
+  color: white;
+}
