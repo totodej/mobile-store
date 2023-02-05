@@ -3,6 +3,7 @@ import { useState } from "react";
 import DropdownHeader from "./DropdownHeader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 function Header(props) {
   const products = props.products;
@@ -17,7 +18,11 @@ function Header(props) {
       <div id="title">Mobile Store</div>
       <nav>
         <ul>
-          <li>Acceuil</li>
+          <li>
+            <Link to="/" className="link">
+              Acceuil
+            </Link>
+          </li>
           <li onClick={handleOpen}>
             Boutique{" "}
             {open ? (
@@ -27,7 +32,11 @@ function Header(props) {
             )}
           </li>
           {open ? <DropdownHeader products={products} /> : null}
-          <li>Contact</li>
+          <li>
+            <Link to="/contact" className="link">
+              Contact
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>

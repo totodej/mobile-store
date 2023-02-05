@@ -1,4 +1,5 @@
 import "../styles/components/DropdownHeader.css";
+import { Link } from "react-router-dom";
 
 function DropdownHeader(props) {
   const products = props.products;
@@ -29,7 +30,11 @@ function DropdownHeader(props) {
       </ul>
       <ul className="brands">
         {productsBrand().map((brand, i) => (
-          <li key={i}>{brand}</li>
+          <li key={i}>
+            <Link to="/products" className="link">
+              {brand}
+            </Link>
+          </li>
         ))}
       </ul>
     </div>
