@@ -1,6 +1,8 @@
+import "../styles/pages/Home.css";
 import Header from "../components/Header";
 import imageHomePage from "../assets/calling-dial-fashion-forest.jpg";
-import "../styles/pages/Home.css";
+import Collection from "../components/Collection";
+import Footer from "../components/Footer";
 import { useState, useEffect } from "react";
 
 function Home() {
@@ -12,6 +14,10 @@ function Home() {
       .then((response) => setData(response));
   }, []);
 
+  if (!data) {
+    return null;
+  }
+
   return (
     <div className="home-page">
       <Header products={data} />
@@ -19,6 +25,8 @@ function Home() {
         <h1>Téléphoner devient un sixième sens</h1>
         <img src={imageHomePage} alt="page d'accueil" />
       </div>
+      <Collection products={data} />
+      <Footer />
     </div>
   );
 }
