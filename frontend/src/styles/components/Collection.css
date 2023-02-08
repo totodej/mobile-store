@@ -10,6 +10,8 @@
   width: 30%;
   text-align: center;
   border: 1px solid lightgrey;
+  text-decoration: none;
+  color: black;
 }
 
 .product:hover {
