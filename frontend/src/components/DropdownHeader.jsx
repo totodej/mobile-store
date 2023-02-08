@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 function DropdownHeader(props) {
   const products = props.products;
+
   const productsType = () => {
     const array = [];
     products.forEach((product) => {
@@ -31,7 +32,7 @@ function DropdownHeader(props) {
       <ul className="brands">
         {productsBrand().map((brand, i) => (
           <li key={i}>
-            <Link to="/products" className="link">
+            <Link to={"/products?brand=" + brand} className="link">
               {brand}
             </Link>
           </li>
