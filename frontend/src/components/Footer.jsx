@@ -7,7 +7,7 @@ function Footer() {
   return (
     <footer>
       <div className="logos">
-        <Link to="https://www.linkedin.com/in/thomas-d%C3%A9jardins-823044123/">
+        <Link to="https://www.linkedin.com/in/thomas-dejardins/">
           <img src={Linkedin} alt="logo linkedin" className="linkedin" />
         </Link>
         <Link to="https://github.com/totodej">
