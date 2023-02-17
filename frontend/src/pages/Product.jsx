@@ -21,6 +21,15 @@ function Product() {
   const findElement = data.filter((p) => p.id === Number(params.id));
   const product = findElement[0];
 
+  const addToCart = () => {
+    const local = window.localStorage.getItem("cart");
+    const cart = JSON.parse(local);
+
+    cart.push(product);
+    console.log(cart);
+    window.localStorage.setItem("cart", JSON.stringify(cart));
+  };
+
   return (
     <div className="product-container">
       <Header products={data} />
@@ -31,6 +40,7 @@ function Product() {
         <div className="descriptions">
           <h1>{product.brand.toUpperCase() + " " + product.title}</h1>
           <p className="price">{product.price} €</p>
+          <button onClick={addToCart}>Ajouter au panier</button>
         </div>
       </section>
 
