@@ -7,6 +7,11 @@ import { useState, useEffect } from "react";
 
 function Home() {
   const [data, setData] = useState(null);
+  const cart = window.localStorage.getItem("cart");
+  if (cart === null) {
+    const newCart = [];
+    window.localStorage.setItem("cart", JSON.stringify(newCart));
+  }
 
   useEffect(() => {
     fetch("http://localhost:5000/api/products")
