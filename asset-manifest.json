@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/mobile-store/static/css/main.c4587a39.css",
-    "main.js": "/mobile-store/static/js/main.665d912c.js",
+    "main.js": "/mobile-store/static/js/main.508047af.js",
     "static/media/linkedin.png": "/mobile-store/static/media/linkedin.a18fd0e384ab23935aea.png",
     "static/media/calling-dial-fashion-forest.jpg": "/mobile-store/static/media/calling-dial-fashion-forest.e4ff67d1a16d5bdedb46.jpg",
     "static/media/github.png": "/mobile-store/static/media/github.987334e9f782cc505f25.png",
     "index.html": "/mobile-store/index.html",
     "main.c4587a39.css.map": "/mobile-store/static/css/main.c4587a39.css.map",
-    "main.665d912c.js.map": "/mobile-store/static/js/main.665d912c.js.map"
+    "main.508047af.js.map": "/mobile-store/static/js/main.508047af.js.map"
   },
   "entrypoints": [
     "static/css/main.c4587a39.css",
-    "static/js/main.665d912c.js"
+    "static/js/main.508047af.js"
   ]
 }
