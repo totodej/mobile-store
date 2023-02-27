@@ -3,10 +3,13 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../features/CartSlice";
 
 function Product() {
   const params = useParams();
   const [data, setData] = useState(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetch("http://localhost:5000/api/products")
@@ -21,13 +24,8 @@ function Product() {
   const findElement = data.filter((p) => p.id === Number(params.id));
   const product = findElement[0];
 
-  const addToCart = () => {
-    const local = window.localStorage.getItem("cart");
-    const cart = JSON.parse(local);
-
-    cart.push(product);
-    console.log(cart);
-    window.localStorage.setItem("cart", JSON.stringify(cart));
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
   };
 
   return (
@@ -40,10 +38,11 @@ function Product() {
         <div className="descriptions">
           <h1>{product.brand.toUpperCase() + " " + product.title}</h1>
           <p className="price">{product.price} €</p>
-          <button onClick={addToCart}>Ajouter au panier</button>
+          <button onClick={() => handleAddToCart(product)}>
+            Ajouter au panier
+          </button>
         </div>
       </section>
-
       <Footer />
     </div>
   );
