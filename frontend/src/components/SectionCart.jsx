@@ -1,16 +1,16 @@
 import "../styles/components/SectionCart.css";
-import { useState } from "react";
 import closeIcon from "../assets/close.png";
+import { useSelector, useDispatch } from "react-redux";
+import { removeFromCart } from "../features/CartSlice";
 
 function SectionCart() {
-  const [list, setList] = useState(
-    JSON.parse(window.localStorage.getItem("cart"))
-  );
+  const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
 
   const totalPrice = () => {
     const array = [];
     let total;
-    list.forEach((product) => {
+    cart.forEach((product) => {
       array.push(product.price);
     });
     array.length !== 0
@@ -20,32 +20,30 @@ function SectionCart() {
     return total;
   };
 
-  const deleteProduct = (id) => {
-    console.log(id);
-    const newList = list.filter((item) => item.id !== id);
-    setList(newList);
-    window.localStorage.setItem("cart", JSON.stringify(newList));
+  const deleteProduct = (product) => {
+    console.log(product);
+    dispatch(removeFromCart(product));
   };
 
   return (
     <section>
       <article>
-        {list.map((myProduct, index) => (
+        {cart.map((product, index) => (
           <div key={index} className="my-product">
             <img
-              onClick={() => deleteProduct(myProduct.id)}
+              onClick={() => deleteProduct(product)}
               src={closeIcon}
               className="cross-icon"
               alt="icon close"
             />
             <div className="descriptions">
-              <h2>{myProduct.title}</h2>
-              <h3>{myProduct.brand}</h3>
-              <p>{myProduct.price} €</p>
+              <h2>{product.title}</h2>
+              <h3>{product.brand}</h3>
+              <p>{product.price} €</p>
             </div>
             <img
-              src={myProduct.image}
-              alt={myProduct.title}
+              src={product.image}
+              alt={product.title}
               className="product-image"
             />
           </div>
@@ -55,7 +53,7 @@ function SectionCart() {
         <div className="cart">
           <div className="cart-description-price">
             <p>
-              Panier <span className="sup">({list.length})</span>
+              Panier <span className="sup">({cart.length})</span>
             </p>
             <p>{totalPrice()} €</p>
           </div>
