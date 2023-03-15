@@ -1,28 +1,66 @@
 import "../styles/components/SectionCart.css";
 import closeIcon from "../assets/close.png";
 import { useSelector, useDispatch } from "react-redux";
-import { removeFromCart } from "../features/CartSlice";
+import {
+  removeFromCart,
+  incrementQuantity,
+  decrementQuantity,
+} from "../features/CartSlice";
 
 function SectionCart() {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
+  const totalItem = () => {
+    const array = [];
+    let total = 0;
+    cart.forEach((product) => {
+      array.push({
+        price: product.price,
+        quantity: product.quantity,
+        total: product.price * product.quantity,
+      });
+    });
+
+    if (array.length !== 0) {
+      array.forEach((product) => {
+        total = total + product.quantity;
+      });
+    }
+
+    return total;
+  };
+
   const totalPrice = () => {
     const array = [];
-    let total;
+    let total = 0;
     cart.forEach((product) => {
-      array.push(product.price);
+      array.push({
+        price: product.price,
+        quantity: product.quantity,
+        total: product.price * product.quantity,
+      });
     });
-    array.length !== 0
-      ? (total = array.reduce((num1, num2) => num1 + num2))
-      : (total = 0);
+
+    if (array.length !== 0) {
+      array.forEach((product) => {
+        total = total + product.total;
+      });
+    }
 
     return total;
   };
 
   const deleteProduct = (product) => {
-    console.log(product);
     dispatch(removeFromCart(product));
+  };
+
+  const increaseQuantity = (product) => {
+    dispatch(incrementQuantity(product));
+  };
+
+  const decreaseQuantity = (product) => {
+    dispatch(decrementQuantity(product));
   };
 
   return (
@@ -46,6 +84,25 @@ function SectionCart() {
               alt={product.title}
               className="product-image"
             />
+            <div className="quantity">
+              <button
+                className="button-quantity"
+                onClick={() => {
+                  decreaseQuantity(product);
+                }}
+              >
+                -
+              </button>
+              {product.quantity}
+              <button
+                className="button-quantity"
+                onClick={() => {
+                  increaseQuantity(product);
+                }}
+              >
+                +
+              </button>
+            </div>
           </div>
         ))}
       </article>
@@ -53,7 +110,7 @@ function SectionCart() {
         <div className="cart">
           <div className="cart-description-price">
             <p>
-              Panier <span className="sup">({cart.length})</span>
+              Panier <span className="sup">({totalItem()})</span>
             </p>
             <p>{totalPrice()} €</p>
           </div>
