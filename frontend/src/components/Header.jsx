@@ -20,7 +20,7 @@ function Header(props) {
         <ul>
           <li>
             <Link to="/" className="link">
-              Acceuil
+              Accueil
             </Link>
           </li>
           <li onClick={handleOpen}>
