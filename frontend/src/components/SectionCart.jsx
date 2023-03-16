@@ -79,11 +79,6 @@ function SectionCart() {
               <h3>{product.brand}</h3>
               <p>{product.price} €</p>
             </div>
-            <img
-              src={product.image}
-              alt={product.title}
-              className="product-image"
-            />
             <div className="quantity">
               <button
                 className="button-quantity"
@@ -103,6 +98,11 @@ function SectionCart() {
                 +
               </button>
             </div>
+            <img
+              src={product.image}
+              alt={product.title}
+              className="product-image"
+            />
           </div>
         ))}
       </article>
