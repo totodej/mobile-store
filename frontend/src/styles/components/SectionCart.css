@@ -1,7 +1,7 @@
 .cart-container section {
   display: flex;
   padding: 30px;
-  min-height: 400px;
+  flex: 1;
 }
 
 .cart-container article {

@@ -1,4 +1,7 @@
 .cart-container {
   width: 100%;
   background-color: lightgrey;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
