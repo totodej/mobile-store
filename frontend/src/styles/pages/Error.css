@@ -1,0 +1,23 @@
+.error-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: lightgrey;
+}
+
+.error-container section {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.error-container section h2 {
+  font-size: 4rem;
+  margin-block-start: 0em;
+}
+
+.error-container section .link {
+  color: black;
+}
