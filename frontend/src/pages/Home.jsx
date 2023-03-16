@@ -26,10 +26,13 @@ function Home() {
   return (
     <div className="home-page">
       <Header products={data} />
-      <div className="home-page-image">
-        <h1>Téléphoner devient un sixième sens</h1>
-        <img src={imageHomePage} alt="page d'accueil" />
-      </div>
+      <section className="image-content">
+        <div className="fade-white">
+          <h1>Téléphoner devient un sixième sens</h1>
+        </div>
+        <div className="home-page-image"></div>
+      </section>
+
       <Collection products={data} />
       <Footer />
     </div>
